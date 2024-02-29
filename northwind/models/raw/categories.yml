@@ -1,0 +1,8 @@
+models:
+  - name: categories
+    description: this is a raw table with all the categories column
+    columns:
+      - name: category_id
+        tests:
+          - unique
+          - not_null
