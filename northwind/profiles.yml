@@ -3,11 +3,11 @@ northwind:
   outputs:
     dev:
       type: snowflake
-      account: {account}
+      account: qf87116.eu-central-1
 
       # User/password auth
-      user: {username}
-      password: {password}
+      user: '{{ env_var("SNOWFLAKE_USERNAME") }}'
+      password: '{{ env_var("SNOWFLAKE_PASSWORD") }}'
 
       role: accountadmin
       database: northwind
