@@ -1,0 +1,17 @@
+northwind:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: {account}
+
+      # User/password auth
+      user: {username}
+      password: {password}
+
+      role: accountadmin
+      database: northwind
+      warehouse: xsmall_wh
+      schema: northwind
+      threads: 12
+      client_session_keep_alive: False
