@@ -7,9 +7,9 @@ WITH product_data AS (
         p.unit_price,
         p.units_in_stock,
         p.units_on_order,
-        p.extracted_at,
         p.discontinued,
         p.reorder_level,
+        p.extracted_at,  -- Assuming this is still needed for joining with dim_date
         s.supplier_id,
         s.company_name AS supplier_name,
         s.city AS supplier_city,
@@ -22,14 +22,22 @@ WITH product_data AS (
     INNER JOIN {{ ref('suppliers') }} AS s ON s.supplier_id = p.supplier_id
 ),
 
+product_dates AS (
+    SELECT
+        pd.*,
+        dd.date_id AS extracted_date_id  -- Joining with dim_date to get the date_id for extracted_at
+    FROM product_data pd
+    INNER JOIN {{ ref('dim_date') }} dd ON pd.extracted_at = dd.date  -- Assuming your dim_date table has a 'date' column
+),
+
 ranked_products AS (
     SELECT
         *,
         ROW_NUMBER() OVER (
             PARTITION BY product_id
-            ORDER BY extracted_at DESC
+            ORDER BY extracted_date_id DESC  -- Using date_id for ordering
         ) AS rank
-    FROM product_data
+    FROM product_dates
 )
 
 SELECT
@@ -49,8 +57,8 @@ SELECT
     category_name,
     discontinued,
     reorder_level,
-    extracted_at,
+    extracted_date_id,  -- Using date_id from dim_date
     CASE WHEN rank = 1 THEN TRUE ELSE FALSE END AS is_current,
-    CASE WHEN rank = 1 THEN CURRENT_TIMESTAMP ELSE extracted_at END AS valid_from,
-    CASE WHEN rank = 1 THEN NULL ELSE LEAD(extracted_at, 1) OVER (PARTITION BY product_id ORDER BY extracted_at DESC) END AS valid_to
+    CASE WHEN rank = 1 THEN (SELECT MAX(date_id) FROM {{ ref('dim_date') }}) ELSE extracted_date_id END AS valid_from_date_id,  -- Using the latest date_id for current records
+    CASE WHEN rank = 1 THEN NULL ELSE LEAD(extracted_date_id, 1) OVER (PARTITION BY product_id ORDER BY extracted_date_id DESC) END AS valid_to_date_id  -- Using the next date_id for historical records
 FROM ranked_products
