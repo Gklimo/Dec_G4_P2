@@ -10,3 +10,5 @@ sources:
       - name: suppliers
       - name: orders
       - name: order_details
+      - name: customers
+      - name: employees

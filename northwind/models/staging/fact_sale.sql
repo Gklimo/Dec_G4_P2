@@ -1,8 +1,8 @@
 with orders as (
     select
-        order_id,
-        customer_id,
-        employee_id,
+        cast(order_id as integer) as order_id,
+        cast(lower(customer_id) as varchar) as customer_id,  
+        cast(employee_id as integer) as employee_id,
         cast(order_date as date) as order_date,
         cast(required_date as date) as required_date,
         cast(shipped_date as date) as shipped_date,
@@ -14,8 +14,8 @@ with orders as (
 
 order_details as (
     select
-        order_id,
-        product_id,
+        cast(order_id as integer) as order_id,
+        cast(product_id as integer) as product_id,
         unit_price,
         quantity,
         discount,
