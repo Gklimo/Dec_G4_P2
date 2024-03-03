@@ -12,7 +12,7 @@ WITH ranked_customers AS (
 
 SELECT
     customer_key,
-    customer_id,
+    cast(lower(customer_id) as varchar) as customer_id,  
     company_name,
     contact_name,
     contact_title,

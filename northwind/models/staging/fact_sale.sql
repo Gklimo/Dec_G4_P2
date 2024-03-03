@@ -52,10 +52,14 @@ select
     ship_city,
     ship_region,
     ship_country,
-    unit_price,
+    od.unit_price,
     quantity,
     discount,   
     revenue
 from orders_joined as oj
 inner join order_details as od
     on oj.order_id = od.order_id
+inner join {{ ref('dim_product') }} as product
+    on od.product_id = product.product_id
+    and oj.order_date_id >= product.valid_from_date_id
+    and oj.order_date_id < coalesce(product.valid_to_date_id, '0000')
