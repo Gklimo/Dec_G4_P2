@@ -6,3 +6,12 @@ models:
         tests:
           - unique
           - not_null
+      - name: category_name
+        tests:
+          - accepted_values:
+              values: ['beverages', 'condiments', 'confections', 'dairy products', 'grains/cereals', 'meat/poultry', 'produce', 'seafood']
+      - name: category_id
+        tests:
+          - relationships:
+              to: ref('categories')
+              field: category_id
