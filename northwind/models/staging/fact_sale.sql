@@ -19,7 +19,7 @@ order_details as (
         unit_price,
         quantity,
         discount,
-        unit_price * quantity as revenue
+        (1-discount) * unit_price * quantity  as revenue
     from {{ ref('order_details') }}
 ),
 
