@@ -11,7 +11,10 @@ WITH sales_data AS (
         fs.revenue,
         fs.order_date_id,
         fs.required_date_id,
-        fs.shipped_date_id
+        fs.shipped_date_id,
+        fs.ship_city,
+        fs.ship_country,
+        
     FROM {{ ref('fact_sale') }} fs
 ),
 
