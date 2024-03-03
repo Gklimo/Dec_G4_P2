@@ -267,3 +267,6 @@ This fact table will allow for the calculation of total product sales by time pe
 - `Photo`
 - `Notes`
 - `ReportsTo`
+
+![image](https://github.com/Gklimo/Dec_G4_P2/assets/84771383/bf660418-949c-4d48-bffe-a07a5f21d172)
+
