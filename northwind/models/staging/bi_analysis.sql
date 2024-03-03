@@ -20,7 +20,8 @@ customer_data AS (
         dc.customer_id,
         dc.company_name,
         dc.contact_name,
-        dc.region AS customer_region
+        dc.region AS customer_region,
+        dc.country AS customer_country
     FROM {{ ref('dim_customer') }} dc
 ),
 
@@ -29,6 +30,7 @@ employee_data AS (
         de.employee_id,
         de.first_name||' '||de.last_name AS employee_name,
         de.region AS employee_region,
+        de.country AS employee_country,
         de.employee_age
     FROM {{ ref('dim_employee') }} de
 ),
@@ -46,8 +48,10 @@ SELECT
     cd.company_name,
     cd.contact_name,
     cd.customer_region,
+    cd.customer_country,
     ed.employee_name,
     ed.employee_region,
+    ed.employee_country,
     ed.employee_age,
     pd.product_name,
     pd.category_name,
@@ -58,6 +62,7 @@ SELECT
     odt.is_holiday,
     rdt.date AS required_date,
     sdt.date AS shipped_date
+
 FROM sales_data sd
 LEFT JOIN customer_data cd ON sd.customer_id = cd.customer_id
 LEFT JOIN employee_data ed ON sd.employee_id = ed.employee_id

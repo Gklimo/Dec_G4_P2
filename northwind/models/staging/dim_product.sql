@@ -18,8 +18,8 @@ WITH product_data AS (
         c.category_id,
         c.category_name
     FROM {{ ref('products') }} AS p
-    INNER JOIN {{ ref('categories') }} AS c ON c.category_id = p.category_id
-    INNER JOIN {{ ref('suppliers') }} AS s ON s.supplier_id = p.supplier_id
+    LEFT JOIN {{ ref('categories') }} AS c ON c.category_id = p.category_id
+    LEFT JOIN {{ ref('suppliers') }} AS s ON s.supplier_id = p.supplier_id
 ),
 
 product_dates AS (
@@ -27,7 +27,7 @@ product_dates AS (
         pd.*,
         dd.date_id AS extracted_date_id  -- Joining with dim_date to get the date_id for extracted_at
     FROM product_data pd
-    INNER JOIN {{ ref('dim_date') }} dd ON pd.extracted_at = dd.date  -- Assuming your dim_date table has a 'date' column
+    LEFT JOIN {{ ref('dim_date') }} dd ON pd.extracted_at = dd.date  -- Assuming your dim_date table has a 'date' column
 ),
 
 ranked_products AS (
