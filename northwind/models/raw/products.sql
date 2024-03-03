@@ -9,5 +9,7 @@ select
     cast(units_in_stock as integer) as units_in_stock,
     cast(units_on_order as integer) as units_on_order,
     cast(reorder_level as integer) as reorder_level,
-    cast(discontinued as integer) as discontinued
+    cast(discontinued as integer) as discontinued,
+    cast(_airbyte_extracted_at as datetime) AS extracted_at
+
 from {{ source('northwind', 'products') }}
