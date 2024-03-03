@@ -7,7 +7,7 @@ WITH ranked_customers AS (
             ORDER BY c.extracted_at DESC
         ) AS rank
     FROM raw.customers c
-    LEFT JOIN staging.dim_date dd ON c.extracted_at = dd.date  -- Assuming your dim_date table has a 'date' column
+    LEFT JOIN staging.dim_date dd ON c.extracted_at::DATE = dd.date  -- Assuming your dim_date table has a 'date' column
 )
 
 SELECT

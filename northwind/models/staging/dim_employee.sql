@@ -7,7 +7,7 @@ WITH employee_data AS (
     FROM {{ ref('employees') }} e
     LEFT JOIN {{ ref('dim_date') }} dd1 ON e.hire_date = dd1.date
     LEFT JOIN {{ ref('dim_date') }} dd2 ON e.birth_date = dd2.date
-    LEFT JOIN {{ ref('dim_date') }} dd3 ON e.extracted_at = dd3.date
+    LEFT JOIN {{ ref('dim_date') }} dd3 ON e.extracted_at::DATE = dd3.date
 ),
 
 ranked_employees AS (

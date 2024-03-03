@@ -27,7 +27,7 @@ product_dates AS (
         pd.*,
         dd.date_id AS extracted_date_id  -- Joining with dim_date to get the date_id for extracted_at
     FROM product_data pd
-    LEFT JOIN {{ ref('dim_date') }} dd ON pd.extracted_at = dd.date  -- Assuming your dim_date table has a 'date' column
+    LEFT JOIN {{ ref('dim_date') }} dd ON pd.extracted_at::DATE = dd.date  -- Assuming your dim_date table has a 'date' column
 ),
 
 ranked_products AS (
