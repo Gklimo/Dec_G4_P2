@@ -20,6 +20,6 @@ SELECT
     country,
     extracted_date_id,  -- Using date_id from dim_date
     CASE WHEN rank = 1 THEN TRUE ELSE FALSE END AS is_current,
-    CASE WHEN rank = 1 THEN (SELECT date_id FROM staging.dim_date WHERE date = CURRENT_DATE) ELSE extracted_date_id END AS valid_from,
-    CASE WHEN rank = 1 THEN NULL ELSE LEAD(extracted_date_id, 1) OVER (PARTITION BY customer_id ORDER BY extracted_at DESC) END AS valid_to
+    CASE WHEN rank = 1 THEN (SELECT date_id FROM {{ ref('dim_date') }} WHERE date = CURRENT_DATE) ELSE extracted_date_id END AS valid_from_id,
+    CASE WHEN rank = 1 THEN NULL ELSE LEAD(extracted_date_id, 1) OVER (PARTITION BY customer_id ORDER BY extracted_at DESC) END AS valid_to_id
 FROM ranked_customers
