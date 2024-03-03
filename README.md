@@ -270,3 +270,60 @@ This fact table will allow for the calculation of total product sales by time pe
 
 ![image](https://github.com/Gklimo/Dec_G4_P2/assets/84771383/bf660418-949c-4d48-bffe-a07a5f21d172)
 
+
+
+
+#### Cloud ######
+
+
+Aibyte connection:
+
+Steps:
+- Create a EC2 instance, the configuration should be as following:
+10 GB,
+t2.medium,
+aws image linux
+Create a Role in EC2 to have acess to EC2SSHKEY
+add that role to the instance.
+Afterwards, to the secuirty associated with the instance, add the tcp 22, in order to allow ssh from local machine, (this one  a SSH type)
+Then to also allow connection to the airbyte, add to the inbound, same as above, but with the tcp  8000 ( this one is a custom)
+
+Then, go to the instance you have created, connections, and thne click on the ssh and go through the steps.
+
+Then locally you have made the connections. You can then run this commands to add docker, in this case the commands are made
+for the case where dokcer compouse up gives errors, when following airbyte recomendations.
+
+#### Docker ###
+sudo yum update -y
+sudo yum install -y docker
+sudo service docker start
+sudo usermod -a -G docker $USER
+DOCKER_CONFIG=/usr/local/lib/docker
+mkdir -p $DOCKER_CONFIG/cli-plugins
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.24.6/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+sudo chmod o+w /usr/local/lib/docker/cli-plugins
+sudo chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+docker compose version
+sudo usermod -aG docker $USER
+#### Airbyte installation ###
+
+
+
+mkdir airbyte && cd airbyte
+wget https://raw.githubusercontent.com/airbytehq/airbyte/master/run-ab-platform.sh
+chmod +x run-ab-platform.sh
+sudo ./run-ab-platform.sh -b
+
+
+### once the step above is odne, its only needed to run this one:
+sudo ./run-ab-platform.sh -b
+
+
+#### Then you can just get your ipv4 public present in your instance and connect to it at the 8000 port.
+
+
+http://<Public IPv4 address>:8000/
+
+
+user : airbyte
+password: password
