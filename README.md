@@ -275,12 +275,12 @@ This fact table will allow for the calculation of total product sales by time pe
 - `Notes`
 - `ReportsTo`
 
-![image](https://github.com/Gklimo/Dec_G4_P2/assets/84771383/bf660418-949c-4d48-bffe-a07a5f21d172)
+![image](https://github.com/Gklimo/Dec_G4_P2/assets/84771383/aae31783-7838-408c-b34e-37a3a9bd10a2)
 
 
 
 
-Aibyte Connection Setup Guide:
+Airbyte Connection Setup Guide:
 
 This guide provides detailed instructions on setting up an EC2 instance for Airbyte, configuring security settings, and installing Docker and Airbyte.
 Prerequisites
