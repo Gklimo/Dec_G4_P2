@@ -274,3 +274,83 @@ This fact table will allow for the calculation of total product sales by time pe
 - `Photo`
 - `Notes`
 - `ReportsTo`
+
+![image](https://github.com/Gklimo/Dec_G4_P2/assets/84771383/bf660418-949c-4d48-bffe-a07a5f21d172)
+
+
+
+
+Aibyte Connection Setup Guide:
+
+This guide provides detailed instructions on setting up an EC2 instance for Airbyte, configuring security settings, and installing Docker and Airbyte.
+Prerequisites
+
+    AWS account
+    Basic understanding of EC2, Docker, and Airbyte
+
+Step 1: Create an EC2 Instance
+
+    Launch an EC2 Instance:
+        Choose the t2.medium instance type.
+        Allocate 10 GB of storage.
+        Select AWS Linux as the machine image.
+
+    Create and Assign a Role:
+        Create a new IAM role that grants access to EC2SSHKEY.
+        Attach this role to your EC2 instance.
+
+    Configure Security Group:
+        Add an SSH rule (TCP port 22) to allow SSH connections from your local machine.
+        Add a Custom TCP rule (TCP port 8000) to allow connections to Airbyte.
+
+Step 2: Connect to Your Instance
+
+    Navigate to the Connections section of your EC2 instance.
+    Follow the provided SSH instructions to connect from your local machine.
+
+Step 3: Install Docker
+
+Run the following commands on your EC2 instance to install Docker and fix potential issues related to docker compose up:
+
+```
+sudo yum update -y
+sudo yum install -y docker
+sudo service docker start
+sudo usermod -a -G docker $USER
+DOCKER_CONFIG=/usr/local/lib/docker
+mkdir -p $DOCKER_CONFIG/cli-plugins
+sudo curl -SL https://github.com/docker/compose/releases/download/v2.24.6/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+sudo chmod o+w /usr/local/lib/docker/cli-plugins
+sudo chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
+docker compose version
+sudo usermod -aG docker $USER
+
+```
+Step 4: Install Airbyte
+
+Execute these commands to download and run Airbyte:
+
+```
+mkdir airbyte && cd airbyte
+wget https://raw.githubusercontent.com/airbytehq/airbyte/master/run-ab-platform.sh
+chmod +x run-ab-platform.sh
+sudo ./run-ab-platform.sh -b
+
+```
+After the installation, you should be able to start Airbyte with:
+
+
+```
+sudo ./run-ab-platform.sh -b
+
+```
+
+Step 5: Access Airbyte
+
+    Retrieve the IPv4 Public IP of your instance from the EC2 dashboard.
+    Access Airbyte by navigating to http://<Your-IPv4-Public-IP>:8000/ in your web browser.
+
+Default Credentials
+
+    Username: airbyte
+    Password: password

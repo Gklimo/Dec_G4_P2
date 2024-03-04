@@ -1,3 +1,6 @@
 .env
 *\logs
 northwind_psql
+comments.txt
+decg5
+airbyte_ec2_key.pem
