@@ -3,12 +3,19 @@ Data Engineering Project 2
 
 
 #### Questions to be answered
+
+Thomas:
 What are the total product sales by year, quarter, and month, seasonality?
+
 Which products are the top sellers?
 What is the average order size and value?
+
+Adre:
 Which customers are top buyers?
 How do sales vary by region or territory?
 Which employees generate the most sales?
+
+Gabrielle:
 What is the average number of orders handled by each employee?
 What is the average time from order placement to shipment?
 What is the average shipping time by shipper and destination?
@@ -267,6 +274,3 @@ This fact table will allow for the calculation of total product sales by time pe
 - `Photo`
 - `Notes`
 - `ReportsTo`
-
-![image](https://github.com/Gklimo/Dec_G4_P2/assets/84771383/bf660418-949c-4d48-bffe-a07a5f21d172)
-
