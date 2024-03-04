@@ -4,21 +4,16 @@ Data Engineering Project 2
 
 #### Questions to be answered
 
-Thomas:
-What are the total product sales by year, quarter, and month, seasonality?
 
-Which products are the top sellers?
-What is the average order size and value?
-
-Adre:
-Which customers are top buyers?
-How do sales vary by region or territory?
-Which employees generate the most sales?
-
-Gabrielle:
-What is the average number of orders handled by each employee?
-What is the average time from order placement to shipment?
-What is the average shipping time by shipper and destination?
+- What are the total product sales by year, quarter, and month, seasonality?
+- Which products are the top sellers?
+- What is the average order size and value?
+- Which customers are top buyers?
+- How do sales vary by region or territory?
+- Which employees generate the most sales?
+- What is the average number of orders handled by each employee?
+- What is the average time from order placement to shipment?
+- What is the average shipping time by shipper and destination?
 
 
 ### Custom config already inside the northwind
