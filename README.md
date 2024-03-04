@@ -366,7 +366,7 @@ Airbyte syncing through curl in ec2, from postgres to snowflake
 <img width="436" alt="Code_QkiMePD5HQ" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/e5ce8135-02e8-4d9d-880f-b476035c0983">
 
 Task Running in Fargate cluster, through EC2 instance:
-![Uploading Code_WDQLstOF3t.png…]()
+
 
 In aws: 
 <img width="836" alt="firefox_EsqTmWasid" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/2561be6f-7e1f-4a3c-a3c5-e3b816fbd152">
