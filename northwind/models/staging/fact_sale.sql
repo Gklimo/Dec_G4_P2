@@ -44,8 +44,9 @@ select
     {{ dbt_utils.generate_surrogate_key(['od.order_id']) }} as order_key,
     {{ dbt_utils.generate_surrogate_key(['customer_id']) }} as customer_key,
     customer_id,
-    {{ dbt_utils.generate_surrogate_key(['employee_id']) }} as employee_key,
-    employee_id,
+    {{ dbt_utils.generate_surrogate_key(['oj.employee_id']) }} as employee_key,
+    oj.employee_id as employee_id,
+    oj.order_date,
     oj.order_date_id,
     oj.required_date_id,
     oj.shipped_date_id,
@@ -63,3 +64,7 @@ inner join {{ ref('dim_product') }} as product
     on od.product_id = product.product_id
     and oj.order_date_id >= product.valid_from_date_id
     and oj.order_date_id < coalesce(product.valid_to_date_id, '0000')
+inner join {{ ref('dim_employee') }} as employee
+    on oj.employee_id = employee.employee_id
+    and oj.order_date::timestamp >= employee.valid_from
+    and oj.order_date::timestamp < coalesce(employee.valid_to, '9999-01-01'::timestamp)
