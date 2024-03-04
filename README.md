@@ -165,7 +165,7 @@ ALTER TABLE us_states REPLICA IDENTITY DEFAULT;
 
 CREATE PUBLICATION airbyte_publication FOR TABLE categories,customer_customer_demo,customer_demographics,customers,employee_territories,employees,order_details,orders,products,region,shippers,suppliers,territories,us_states;
 
-############## 
+############## Set up airbyte source from Postgres
 
 Host: host.docker.internal
 Port: 55432 , from the nortwind port
@@ -185,7 +185,13 @@ SELECT * FROM pg_publication;
 SELECT * FROM pg_replication_slots;
 
 
-################### Facts and Dimensions
+
+# DBT & Snowflake
+establish a connection with Airbyte to your Snowflake database (instructions to follow)
+run command `dbt deps` to download and install packages into your dbt project
+run command `dbt build` to create tables in your Snowflake database
+
+################### Facts and Dimensions Documentation
 ### Fact Table - Sales Facts
 
 **FactSales**
@@ -271,9 +277,6 @@ This fact table will allow for the calculation of total product sales by time pe
 - `ReportsTo`
 
 ![image](https://github.com/Gklimo/Dec_G4_P2/assets/84771383/aae31783-7838-408c-b34e-37a3a9bd10a2)
-
-
-
 
 Airbyte Connection Setup Guide:
 
