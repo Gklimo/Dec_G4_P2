@@ -305,8 +305,6 @@ Step 3: Install Docker
 
 Run the following commands on your EC2 instance to install Docker and fix potential issues related to docker compose up:
 
-bash
-
 sudo yum update -y
 sudo yum install -y docker
 sudo service docker start
@@ -323,8 +321,6 @@ Step 4: Install Airbyte
 
 Execute these commands to download and run Airbyte:
 
-bash
-
 mkdir airbyte && cd airbyte
 wget https://raw.githubusercontent.com/airbytehq/airbyte/master/run-ab-platform.sh
 chmod +x run-ab-platform.sh
@@ -332,7 +328,6 @@ sudo ./run-ab-platform.sh -b
 
 After the installation, you should be able to start Airbyte with:
 
-bash
 
 sudo ./run-ab-platform.sh -b
 
