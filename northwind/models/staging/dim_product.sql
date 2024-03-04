@@ -20,7 +20,7 @@ WITH product_data AS (
     FROM {{ ref('products') }} AS p
     LEFT JOIN {{ ref('categories') }} AS c ON c.category_id = p.category_id
     LEFT JOIN {{ ref('suppliers') }} AS s ON s.supplier_id = p.supplier_id
-),
+), 
 
 product_dates AS (
     SELECT

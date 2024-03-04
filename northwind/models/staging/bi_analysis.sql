@@ -32,8 +32,8 @@ employee_data AS (
     SELECT
         de.employee_id,
         de.first_name||' '||de.last_name AS employee_name,
-        de.region AS employee_region,
-        de.country AS employee_country,
+        de.employee_region AS employee_region,
+        de.employee_country AS employee_country,
         de.employee_age
     FROM {{ ref('dim_employee') }} de
 ),

@@ -7,5 +7,4 @@ select
     cast(lower(region) as varchar) as region,
     cast(lower(country) as varchar) as country,
     cast(_airbyte_extracted_at as datetime) AS extracted_at
-
 from {{ source('northwind', 'customers') }}
