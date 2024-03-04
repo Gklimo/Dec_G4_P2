@@ -354,3 +354,21 @@ Default Credentials
 
     Username: airbyte
     Password: password
+
+
+Airbyte Postgres CDC setup:
+<img width="593" alt="firefox_hyHMWUgK4x" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/148445c3-b8e3-40cf-ac7f-570bdadd5f8e">
+
+Airbyte connector with postgres cdc
+<img width="960" alt="firefox_z590R0rJLS" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/6f2a8d21-72bb-4d60-bf82-0f7147a8ce3d">
+
+Airbyte syncing through curl in ec2, from postgres to snowflake
+<img width="436" alt="Code_QkiMePD5HQ" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/e5ce8135-02e8-4d9d-880f-b476035c0983">
+
+Task Running in Fargate cluster, through EC2 instance:
+![Uploading Code_WDQLstOF3t.png…]()
+
+In aws: 
+<img width="836" alt="firefox_EsqTmWasid" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/2561be6f-7e1f-4a3c-a3c5-e3b816fbd152">
+
+
