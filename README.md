@@ -360,7 +360,8 @@ Airbyte Postgres CDC setup:
 Airbyte connector with postgres cdc
 <img width="960" alt="firefox_z590R0rJLS" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/6f2a8d21-72bb-4d60-bf82-0f7147a8ce3d">
 
-Airbyte syncing through curl in ec2, from postgres to snowflake
+Airbyte syncing through curl in ec2, from postgres to snowflake:
+
 <img width="436" alt="Code_QkiMePD5HQ" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/e5ce8135-02e8-4d9d-880f-b476035c0983">
 
 Task Running in Fargate cluster, through EC2 instance:
@@ -371,13 +372,16 @@ In aws:
 
 
 
-Pipeline (command line) running airbyte
+Pipeline (command line) running airbyte: 
+
 <img width="733" alt="Code_iYLVHfVyhf" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/aac4d59c-70d5-4a4e-9de0-755396fb4141">
 
 Airbyte showing the sync:
+
 <img width="960" alt="firefox_73rccZgxUD" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/1d84ee77-7315-49a0-8c84-badeab04f09d">
 
 Airbyte + Fargate task:
+
 <img width="315" alt="bA05tdPbTC" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/fb07e874-9a75-4c4f-8779-362773e0d07e">
 
 
