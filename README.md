@@ -1,7 +1,7 @@
 # Dec_G4_P2
 Data Engineering Project 2
 
-Presentation: https://docs.google.com/presentation/d/1-SHfCdRcbhU8BWSx0WzQUuK0KAm3HxcBE9l7FtbH4f0/edit#slide=id.g2bf6abc1ace_1_59
+Presentation: https://docs.google.com/presentation/d/1-SHfCdRcbhU8BWSx0WzQUuK0KAm3HxcBE9l7FtbH4f0/edit#slide=id.p
 #### Questions to be answered
 
 
