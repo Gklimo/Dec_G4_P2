@@ -187,7 +187,20 @@ SELECT * FROM pg_replication_slots;
 
 
 # DBT & Snowflake
-establish a connection with Airbyte to your Snowflake database (instructions to follow)
+establish a connection with Airbyte to your Snowflake database 
+### Create a new airbyte destination
+
+1. Go to destination and select "+ New destination"
+1. For "Destination type", select "Snowflake":
+   - Name: `snowflake`
+   - Host: `<copy from snowflake account>`
+   - Role: `accountadmin`
+   - Warehouse: `xsmall_wh`
+   - Database name: `<your_database>`
+   - Schemas: `<your_schema>`
+   - Username: `<your_username>`
+   - Password: `<your_password>`
+1. Select "Set up destination"
 run command `dbt deps` to download and install packages into your dbt project
 run command `dbt build` to create tables in your Snowflake database
 
