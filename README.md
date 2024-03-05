@@ -18,24 +18,19 @@ Presentation: https://docs.google.com/presentation/d/1-SHfCdRcbhU8BWSx0WzQUuK0KA
 
 ### Custom config already inside the northwind
 
-
-# Dec_G4_P2
-
-Data Engineering Project 2
-
-# Installation
+## Installation
 
 Clone northwind repository from https://github.com/pthom/northwind_psql
 
-# Run docker-compose
+## Run docker-compose
 
 Run docker-compose up
 
-# Run psql client:
+## Run psql client:
 
 docker-compose exec db psql -U postgres -d northwind
 
-# Connect PgAdmin
+## Connect PgAdmin
 
 Access to PgAdmin at the url: http://localhost:5050
 
@@ -81,11 +76,11 @@ docker run -p 5433:5432 -e POSTGRES_PASSWORD=postgres -v my-postgres:/var/lib/po
 
 ```
 
-# navigate to the airbyte directory
+## navigate to the airbyte directory
 
 cd airbyte
 
-# start airbyte
+## start airbyte
 
 ./run-ab-platform.sh
 
@@ -122,8 +117,7 @@ max_replication_slots = 1
 ```
 
 
-
-#### Connect to docker before running sql commands:
+## Connect to docker before running sql commands:
 
 ## Docker commands:
 
@@ -131,7 +125,7 @@ max_replication_slots = 1
 docker-compose exec db psql -U postgres -d northwind
 
 
-### Sql commands to run 
+## Sql commands to run 
 
 ALTER USER postgres REPLICATION;
 
@@ -165,7 +159,7 @@ ALTER TABLE us_states REPLICA IDENTITY DEFAULT;
 
 CREATE PUBLICATION airbyte_publication FOR TABLE categories,customer_customer_demo,customer_demographics,customers,employee_territories,employees,order_details,orders,products,region,shippers,suppliers,territories,us_states;
 
-############## Set up airbyte source from Postgres
+## Set up airbyte source from Postgres
 
 Host: host.docker.internal
 Port: 55432 , from the nortwind port
@@ -178,7 +172,6 @@ Publication: airbyte_publication
 
 ### To check if the CDC was implemented, run this in the docker container made by docker compose up
 
-###################################
 SELECT * FROM pg_publication;
 
 
@@ -186,7 +179,7 @@ SELECT * FROM pg_replication_slots;
 
 
 
-# DBT & Snowflake
+## DBT & Snowflake
 establish a connection with Airbyte to your Snowflake database 
 ### Create a new airbyte destination
 
@@ -201,10 +194,12 @@ establish a connection with Airbyte to your Snowflake database
    - Username: `<your_username>`
    - Password: `<your_password>`
 1. Select "Set up destination"
-run command `dbt deps` to download and install packages into your dbt project
-run command `dbt build` to create tables in your Snowflake database
 
-################### Facts and Dimensions Documentation
+### Set up dbt
+- run command `dbt deps` to download and install packages into your dbt project
+- run command `dbt build` to create tables in your Snowflake database
+
+Facts and Dimensions Documentation
 ### Fact Table - Sales Facts
 
 **FactSales**
@@ -291,7 +286,7 @@ This fact table will allow for the calculation of total product sales by time pe
 
 ![image](https://github.com/Gklimo/Dec_G4_P2/assets/84771383/aae31783-7838-408c-b34e-37a3a9bd10a2)
 
-Airbyte Connection Setup Guide:
+# Airbyte Connection Setup Guide:
 
 This guide provides detailed instructions on setting up an EC2 instance for Airbyte, configuring security settings, and installing Docker and Airbyte.
 Prerequisites
