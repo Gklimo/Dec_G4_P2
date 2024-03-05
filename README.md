@@ -370,3 +370,14 @@ In aws:
 <img width="836" alt="firefox_EsqTmWasid" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/2561be6f-7e1f-4a3c-a3c5-e3b816fbd152">
 
 
+
+Pipeline (command line) running airbyte
+<img width="733" alt="Code_iYLVHfVyhf" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/aac4d59c-70d5-4a4e-9de0-755396fb4141">
+
+Airbyte showing the sync:
+<img width="960" alt="firefox_73rccZgxUD" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/1d84ee77-7315-49a0-8c84-badeab04f09d">
+
+Airbyte + Fargate task:
+<img width="315" alt="bA05tdPbTC" src="https://github.com/Gklimo/Dec_G4_P2/assets/145110891/fb07e874-9a75-4c4f-8779-362773e0d07e">
+
+
