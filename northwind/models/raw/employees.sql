@@ -1,3 +1,4 @@
+-- When running for the first time, comment out the config
 {{
     config(
         materialized="incremental",
@@ -45,6 +46,7 @@ select
 from 
     RankedEmployees
 
+-- When running for the first time, comment this out
 {% if is_incremental() %}
     where valid_from > (select max(valid_from) from {{ this }} )
 {% endif %}
